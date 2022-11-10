@@ -10,7 +10,7 @@ public class DevTeamsManagement_UI
     {
         RunApplication();
     }
-
+/*
 private void ReturnToMainMenu()
     {
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
@@ -18,6 +18,7 @@ private void ReturnToMainMenu()
         ReadKey();
         ResetColor();
     }
+*/
     private void RunApplication()
     {
         Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -203,8 +204,8 @@ private void ReturnToMainMenu()
                     RunApplication();
                     break;
                 default:
-                    Console.WriteLine("Press Space + Enter to Return to Main Menu");
                     Console.Clear();
+                    AppSignOut();
                     break;
             }
         };
