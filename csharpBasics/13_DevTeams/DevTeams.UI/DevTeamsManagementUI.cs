@@ -13,23 +13,25 @@ public void Run()
             LogInScreen();    //* Line 233 (right where you'd expect it, lol)
         };
     }
-private void ReturnToMainMenu()
+private void DevIndexMenuReturn()
+
     {
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
-        System.Console.WriteLine("Any Key to Return to Main");
+        System.Console.WriteLine("Any Key to Return to Developer Index Menu:");
         ResetColor();
         ReadKey();
         Console.Clear();
-        RunApplication();
+        ViewDevIndex();
     }
+//* MAIN MENU
 private void RunApplication()
     {
         Console.ForegroundColor = ConsoleColor.DarkGreen;
             System.Console.WriteLine("\n" 
             + "                                                                                                                \n" 
-            + "                                Komodo Insurance Dev Team Management Application                                \n"   //1. Line 88
-            + "                                                   Main Menu Options                                            \n"); //2. Add New Developer Profile (Allow input to Dev Repository)); 
-        ResetColor();                                                                                                                //3. Remove Developer Profile  (Allow Deletion)
+            + "                                Komodo Insurance Dev Team Management Application                                \n"   
+            + "                                                   Main Menu Options                                            \n"); 
+        ResetColor();                                                                                                               
 
             System.Console.WriteLine("\n"
             + "                                                                                                                \n"
@@ -46,29 +48,35 @@ private void RunApplication()
             + " Please Enter a Menu Number:");
             ResetColor();
 
-            var userInput = ReadLine();
-            switch (userInput)
+            var mainMenuNav = ReadLine();
+            switch (mainMenuNav)
             {
                 case "1":
                     Console.Clear();
                     ViewDevIndex();
                     break;
                 case "2":
+                    Console.Clear();
                     AddNewDevProf();
                     break;
                 case "3":
+                    Console.Clear();
                     RmvDevProf();
                     break;
                 case "4":
+                    Console.Clear();
                     SearchDev();
                     break;
                 case "5":
+                    Console.Clear();
                     EditDevProf();
                     break;
                 case "6":
+                    Console.Clear();
                     ManageTeams();
                     break;
                 case "7":
+                    Console.Clear();
                     RunHrReport();
                     break;
                 case "10":
@@ -85,14 +93,14 @@ private void RunApplication()
     
     }
 //* 1. List Developer Index
-    private void ViewDevIndex()
+private void ViewDevIndex()
     {   Console.ForegroundColor = ConsoleColor.DarkGreen;
             System.Console.WriteLine("\n" 
             + "                                                                                                                \n" 
             + "                                Komodo Insurance Dev Team Management Application                                \n");
-        Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             System.Console.WriteLine(
-            "                                                Developer Index Options                                           \n");
+            "                                             Developer Index Menu Options                                         \n");
         ResetColor();                                                                                                                
             System.Console.WriteLine("\n"
             + "                                                                                                                \n"
@@ -107,9 +115,9 @@ private void RunApplication()
             System.Console.WriteLine(" Please Enter a Menu Number:");
         ResetColor();
 
-            var userInput = ReadLine();
-            switch (userInput)
-            {
+            var devIndexNav = ReadLine();
+            switch (devIndexNav)
+            { 
                 case "1":
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -120,11 +128,7 @@ private void RunApplication()
                         (
                             //External Reference to Developer Class Database. Print Format: I.D.# , lastName, firstName, teamName
                         );
-                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                        System.Console.WriteLine("Any Key to Return to Developer Index Menu:");
-                    ResetColor();
-                    ReadKey();
-                    ViewDevIndex();
+                        DevIndexMenuReturn();
                     break;
                 case "2":
                     Console.Clear();
@@ -137,11 +141,7 @@ private void RunApplication()
                             //Conditional: bool hasTeam (if true, print. If not, pass)
                             //External Reference to Developer Class Database. Print Format: I.D.# , lastName, firstName, teamName 
                         );
-                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                        System.Console.WriteLine("Any Key to Return to Developer Index Menu:");
-                    ResetColor();
-                    ReadKey();
-                    ViewDevIndex();
+                        DevIndexMenuReturn();
                     break;
                 case "3":
                     Console.Clear();
@@ -154,11 +154,7 @@ private void RunApplication()
                             //Conditional: bool hasTeam (if !true, print. If not, pass)
                             //External Reference to Developer Class Database. Print Format: I.D.# , lastName, firstName, teamName(null) 
                         );
-                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                        System.Console.WriteLine("Any Key to Return to Developer Index Menu:");
-                    ResetColor();
-                    ReadKey();
-                    ViewDevIndex();
+                        DevIndexMenuReturn();
                     break;
                 case "4":
                     Console.Clear();
@@ -171,11 +167,7 @@ private void RunApplication()
                             //External Reference to DevTeam Class Database. Print Format: Team Name, Team Members (I.D.# , lastName , FirstName)
                             //todo: Figure out how to format the Team Roster print line.
                         );
-                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                        System.Console.WriteLine("Any Key to Return to Developer Index Menu:");
-                    ResetColor();
-                    ReadKey();
-                    ViewDevIndex();
+                        DevIndexMenuReturn();
                     break;
                 case "5":
                     Console.Clear();
@@ -187,9 +179,48 @@ private void RunApplication()
     }
 //* 2. Add New Developer Profile
     private void AddNewDevProf()
-    {
-        // 1. Create new instance of Developer Class //todo: Figure out how to store Dev. information in referenced Repository
-        // Probably use one off writelines and Readlines to log Dev attribute data. Use Integer counter or number gen. to assign Employee ID.
+    {Console.ForegroundColor = ConsoleColor.DarkGreen;
+        System.Console.WriteLine("\n" 
+            + "                                                                                                                \n" 
+            + "                                Komodo Insurance Dev Team Management Application                                \n"); 
+    Console.ForegroundColor = ConsoleColor.DarkRed;
+        System.Console.WriteLine
+            ("                                            Add New Developer Profile                                              ");
+    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        System.Console.WriteLine("To add a new Developer Profile, please enter New Dev info in the following format: /n"
+                                +"Format Text to pass through into new Dev Class Instance to be logged in Data File");  
+
+                                // 1. Create new instance of Developer Class //todo: Figure out how to store Dev. information in referenced Repository
+                                // Probably use one off writelines and Readlines to log Dev attribute data. Use Integer counter or number gen. to assign Employee ID.
+    ResetColor();
+    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        System.Console.WriteLine("Select an option: \n"
+                                +"1. Add Another Dev Profile \n"
+                                +"2. Return To Main Menu \n"
+                                +"3. Sign Out");
+    ResetColor();
+        var newDevNav = ReadLine();
+        switch (newDevNav)
+        {
+            case "1":
+                Console.Clear();
+                AddNewDevProf();
+                break;
+            case "2": 
+                Console.Clear();
+                RunApplication();
+                break;
+            case "3":
+                Console.Clear();
+                LogInScreen();
+                break;
+            default:
+                Console.ForegroundColor = ConsoleColor.Red;
+                System.Console.WriteLine("Error: Invalid Selection. Returns to Main Menu");
+                ResetColor();
+                RunApplication();
+                break;
+        }
     }
 //* 3. Remove Developer Profile
     private void RmvDevProf()
