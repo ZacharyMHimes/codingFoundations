@@ -120,6 +120,11 @@ private void RunApplication()
                         (
                             //External Reference to Developer Class Database. Print Format: I.D.# , lastName, firstName, teamName
                         );
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                        System.Console.WriteLine("Any Key to Return to Developer Index Menu:");
+                    ResetColor();
+                    ReadKey();
+                    ViewDevIndex();
                     break;
                 case "2":
                     Console.Clear();
@@ -132,6 +137,11 @@ private void RunApplication()
                             //Conditional: bool hasTeam (if true, print. If not, pass)
                             //External Reference to Developer Class Database. Print Format: I.D.# , lastName, firstName, teamName 
                         );
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                        System.Console.WriteLine("Any Key to Return to Developer Index Menu:");
+                    ResetColor();
+                    ReadKey();
+                    ViewDevIndex();
                     break;
                 case "3":
                     Console.Clear();
@@ -144,6 +154,11 @@ private void RunApplication()
                             //Conditional: bool hasTeam (if !true, print. If not, pass)
                             //External Reference to Developer Class Database. Print Format: I.D.# , lastName, firstName, teamName(null) 
                         );
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                        System.Console.WriteLine("Any Key to Return to Developer Index Menu:");
+                    ResetColor();
+                    ReadKey();
+                    ViewDevIndex();
                     break;
                 case "4":
                     Console.Clear();
@@ -153,8 +168,14 @@ private void RunApplication()
                     ResetColor();
                         System.Console.WriteLine
                         (
-                            //External Reference to Developer Class Database. Print Format: I.D.# , lastName, firstName, teamName 
+                            //External Reference to DevTeam Class Database. Print Format: Team Name, Team Members (I.D.# , lastName , FirstName)
+                            //todo: Figure out how to format the Team Roster print line.
                         );
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                        System.Console.WriteLine("Any Key to Return to Developer Index Menu:");
+                    ResetColor();
+                    ReadKey();
+                    ViewDevIndex();
                     break;
                 case "5":
                     Console.Clear();
