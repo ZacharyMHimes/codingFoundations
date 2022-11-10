@@ -1,30 +1,34 @@
 ﻿using static System.Console;
-//todo: 1. Figure Out How to Close Application (Use Booleans)
 //todo: 2. Figure build Out Developer Class to include needed properties.
 //todo: 3. Make "view developer index" work with Dev. Repository
 //todo: 4. Ask Terry to clarify how Repository draws from data file, so that you can scope out a means to store
 //todo:    Dev class property values all up in there.
 public class DevTeamsManagement_UI
 {
+    public bool isRunning = true;  // Sets condition for program to run
     public void Run()
-    {
-        RunApplication();
+    {   while (isRunning == true)
+        {RunApplication();};
     }
-/*
+private void AppSignIn()           // Carries User to Log In Screen (could allow for password protection)
+    {
+        LogInScreen();
+    }
 private void ReturnToMainMenu()
     {
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
-        System.Console.WriteLine("Return to Main Menu");
-        ReadKey();
+        System.Console.WriteLine("Any Key to Return to Main");
         ResetColor();
+        ReadKey();
+        Console.Clear();
+        RunApplication();
     }
-*/
     private void RunApplication()
     {
         Console.ForegroundColor = ConsoleColor.DarkGreen;
             System.Console.WriteLine("\n" 
             + "                                                                                                                \n" 
-            + "                                Komodo Insurance Dev Team Management Application                                \n"   //1. Lists All Developer Profiles By Employee ID
+            + "                                Komodo Insurance Dev Team Management Application                                \n"   //1. Line 88
             + "                                                   Main Menu Options                                            \n"); //2. Add New Developer Profile (Allow input to Dev Repository)); 
         ResetColor();                                                                                                                //3. Remove Developer Profile  (Allow Deletion)
 
@@ -47,6 +51,7 @@ private void ReturnToMainMenu()
             switch (userInput)
             {
                 case "1":
+                    Console.Clear();
                     ViewDevIndex();
                     break;
                 case "2":
@@ -69,7 +74,7 @@ private void ReturnToMainMenu()
                     break;
                 case "10":
                     Console.Clear();
-                    AppSignOut();
+                    LogInScreen();
                     break;   
                 default:
                     Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -82,11 +87,56 @@ private void ReturnToMainMenu()
     }
 //* 1. List Developer Index
     private void ViewDevIndex()
-    {
-        // 1. List all Devs
-        // 2. List all Teamed Devs
-        // 3. List all Unteamed Devs
-        // 4. Back To Main
+    {   Console.ForegroundColor = ConsoleColor.DarkGreen;
+            System.Console.WriteLine("\n" 
+            + "                                                                                                                \n" 
+            + "                                Komodo Insurance Dev Team Management Application                                \n");
+        Console.ForegroundColor = ConsoleColor.DarkCyan;
+            System.Console.WriteLine(
+                "                                             Developer Index Options                                          \n");
+        ResetColor();                                                                                                                
+            System.Console.WriteLine("\n"
+            + "                                                                                                                \n"
+            + "     1. List All Developer Profiles By I.D.#                                       6. ------------              \n"
+            + "     2. List All Teamed Devs By I.D.#                                              7. ------------              \n"
+            + "     3. List All Unteamed Devs By I.D. #                                           8. ------------              \n" 
+            + "     4. List All Devs By Team                                                      9. ------------              \n" 
+            + "     5. Return to Main                                                             10.------------              \n" 
+            + "                                                                                                                \n"
+            + "                                                                                                                \n"); 
+
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            System.Console.WriteLine("\n"
+            + " Please Enter a Menu Number:");
+            ResetColor();
+
+            var userInput = ReadLine();
+            switch (userInput)
+            {
+                case "1":
+                    Console.Clear();
+                    //* Print All Dev. Profiles stored in Repo to the Console
+
+                    break;
+                case "2":
+                    Console.Clear();
+                    
+                    break;
+                case "3":
+                    Console.Clear();
+                    
+                    break;
+                case "4":
+                    Console.Clear();
+                    
+                    break;
+                case "5":
+                    Console.Clear();
+                    RunApplication();
+                    break;
+
+
+            }
     }
 //* 2. Add New Developer Profile
     private void AddNewDevProf()
@@ -181,7 +231,7 @@ private void ReturnToMainMenu()
 
     }
 //* 10. Sign Out
-    private void AppSignOut()
+    private void LogInScreen()
     {
         Console.ForegroundColor = ConsoleColor.DarkGreen;
             System.Console.WriteLine("\n" 
@@ -194,18 +244,24 @@ private void ReturnToMainMenu()
         ResetColor();
         Console.ForegroundColor = ConsoleColor.DarkCyan;
             System.Console.WriteLine("\n"
-            +"Press Space + Enter to Return to Main Menu");
+            +"Press '1' to Main Menu \n"
+            +"Press '2' to Close Application");
+            
         var userInput = ReadLine();
         {
             switch (userInput)
             {
-                case " ":
+                case "1":
                     Console.Clear();
                     RunApplication();
                     break;
+                case "2":
+                    Console.Clear();
+                    isRunning = false;
+                    break;
                 default:
                     Console.Clear();
-                    AppSignOut();
+                    LogInScreen();
                     break;
             }
         };
