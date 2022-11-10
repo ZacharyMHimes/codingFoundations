@@ -2,6 +2,7 @@
 //todo: 2. Figure build Out Developer Class to include needed properties.
 //todo: 3. Make "view developer index" work with Dev. Repository
 //todo: 4. Ask Terry to clarify how Repository draws from data file, so that you can scope out a means to store
+//todo: 5. Ask Terry what a better class for line 49 would be (potentially Enum?)
 //todo:    Dev class property values all up in there.
 public class DevTeamsManagement_UI
 {
@@ -12,7 +13,6 @@ public void Run()
             LogInScreen();    //* Line 233 (right where you'd expect it, lol)
         };
     }
-
 private void ReturnToMainMenu()
     {
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
@@ -92,7 +92,7 @@ private void RunApplication()
             + "                                Komodo Insurance Dev Team Management Application                                \n");
         Console.ForegroundColor = ConsoleColor.DarkCyan;
             System.Console.WriteLine(
-                "                                             Developer Index Options                                          \n");
+            "                                                Developer Index Options                                           \n");
         ResetColor();                                                                                                                
             System.Console.WriteLine("\n"
             + "                                                                                                                \n"
@@ -103,31 +103,58 @@ private void RunApplication()
             + "     5. Return to Main                                                             10.------------              \n" 
             + "                                                                                                                \n"
             + "                                                                                                                \n"); 
-
-            Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            System.Console.WriteLine("\n"
-            + " Please Enter a Menu Number:");
-            ResetColor();
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            System.Console.WriteLine(" Please Enter a Menu Number:");
+        ResetColor();
 
             var userInput = ReadLine();
             switch (userInput)
             {
                 case "1":
                     Console.Clear();
-                    //* Print All Dev. Profiles stored in Repo to the Console
-
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        System.Console.WriteLine("\n"
+                        +"                                        Current Developer Profiles In Use:                                         ");
+                    ResetColor();
+                        System.Console.WriteLine
+                        (
+                            //External Reference to Developer Class Database. Print Format: I.D.# , lastName, firstName, teamName
+                        );
                     break;
                 case "2":
                     Console.Clear();
-                    
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        System.Console.WriteLine("\n"
+                        +"                                        Current Developer Profiles On Teams:                                        ");
+                    ResetColor();
+                        System.Console.WriteLine
+                        (
+                            //Conditional: bool hasTeam (if true, print. If not, pass)
+                            //External Reference to Developer Class Database. Print Format: I.D.# , lastName, firstName, teamName 
+                        );
                     break;
                 case "3":
                     Console.Clear();
-                    
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        System.Console.WriteLine("\n"
+                        +"                                        Current Developer Profiles Not On Teams:                                    ");
+                    ResetColor();
+                        System.Console.WriteLine
+                        (
+                            //Conditional: bool hasTeam (if !true, print. If not, pass)
+                            //External Reference to Developer Class Database. Print Format: I.D.# , lastName, firstName, teamName(null) 
+                        );
                     break;
                 case "4":
                     Console.Clear();
-                    
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        System.Console.WriteLine("\n"
+                        +"                                        Current Developer Profiles By Team Roster:                                  ");
+                    ResetColor();
+                        System.Console.WriteLine
+                        (
+                            //External Reference to Developer Class Database. Print Format: I.D.# , lastName, firstName, teamName 
+                        );
                     break;
                 case "5":
                     Console.Clear();
@@ -245,6 +272,7 @@ private void RunApplication()
             System.Console.WriteLine("\n"
             +"Press '1' to Main Menu \n"
             +"Press '2' to Close Application");
+        ResetColor();
             
         var userInput = ReadLine();
         {
