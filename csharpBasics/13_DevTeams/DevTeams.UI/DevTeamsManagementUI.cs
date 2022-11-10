@@ -25,7 +25,7 @@ private void DevIndexMenuReturn()
     }
 //* MAIN MENU
 private void RunApplication()
-    {
+    {   Console.Clear();
         Console.ForegroundColor = ConsoleColor.DarkGreen;
             System.Console.WriteLine("\n" 
             + "                                                                                                                \n" 
@@ -223,11 +223,59 @@ private void ViewDevIndex()
         }
     }
 //* 3. Remove Developer Profile
-    private void RmvDevProf()
-    {
-        //1. Create option to select and delete Developer profiles from directory.
+private void RmvDevProf()
+    {   //1. Create option to select and delete Developer profiles from directory.
         //2. Should Probably include a warning message. "Are you sure? this will delete all info..."
+    {Console.ForegroundColor = ConsoleColor.DarkGreen;
+        System.Console.WriteLine("\n" 
+            + "                                                                                                                \n" 
+            + "                                Komodo Insurance Dev Team Management Application                                \n"); 
+    Console.ForegroundColor = ConsoleColor.DarkRed;
+        System.Console.WriteLine
+            ("                                            Remove Developer Profile                                              ");
+    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        System.Console.WriteLine("To remove a Developer Profile, please enter Dev I.D.#:");
+//todo: Specify Employee I.D. as a Readline(); return. Use bools to confirm I.D. is real, else Writeline("I.D.# not found")
+//todo: index ReadLine against I.D.'s Stored in Repository
+//        string idSearchText = ReadLine();
+//        int idSearch = int.Parse(idSearchText);
+//        if (idSearch = Developer.)
+        ReadLine(); //* 6 digit I.D.#
+    Console.ForegroundColor = ConsoleColor.Red;
+        System.Console.WriteLine("Are you sure you want to remove Dev Profile? --- This will permanently erase the profile from Application Database. < o_0 >");
+    Console.ForegroundColor = ConsoleColor.DarkMagenta; 
+        System.Console.WriteLine("1. I'm Sure. \n"
+                                +"2. Select a different I.D. \n"
+                                +"3. Cancel Action - Return to Main");
+    ResetColor();
+        var removeConfirmMenu = ReadLine();
+        switch (removeConfirmMenu)
+        {
+            case "1":
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                System.Console.WriteLine("Developer Profile '000000' removed from database \n"
+                                        +"Press Any Key to Return to Main");
+                ReadKey();
+                RunApplication();
+                break;
+            case "2": 
+                Console.Clear();
+                RmvDevProf();
+                break;
+            case "3":
+                Console.Clear();
+                RunApplication();
+                break;
+            default:
+                Console.ForegroundColor = ConsoleColor.Red;
+                System.Console.WriteLine("Error: Invalid Selection. Returns to Main Menu");
+                ResetColor();
+                RunApplication();
+                break;
 
+        }
+    }
     }
 //* 4. Search Dev. by Employee I.D. #
     private void SearchDev()
@@ -303,13 +351,62 @@ private void ViewDevIndex()
     }
 //* 7. Run HR Report
     private void RunHrReport()
-    {
+    {   Console.Clear();
+        DateTime todaysDate = DateTime.Today;
 
-        //Prints to console list of all Devs plus Access status for Web learning tool (has access / needs access)
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+            System.Console.WriteLine("\n" 
+            + "                                                                                                                \n" 
+            + "                                Komodo Insurance Dev Team Management Application                                \n"   
+            + "                                               HR Pluralsight Report                                            \n"); 
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        System.Console.WriteLine("Run Report");
+        ReadKey();                                                                                             
+
+        ResetColor();
+        System.Console.WriteLine
+        (
+        //Prints to console list of all Devs plus Access status for Web learning tool (has access / needs access) //todo: Figure out how to make "needs pluralsight access" Print Red
+        " (Dev1 ID) + (Dev1 lastName) + (Dev1 firstName) + (hasPluralSightStatus) \n" +
+        " (Dev2 ID) + (Dev2 lastName) + (Dev2 firstName) + (hasPluralSightStatus) \n" +
+        " (Dev3 ID) + (Dev3 lastName) + (Dev3 firstName) + (hasPluralSightStatus) \n" +
+        " (Dev4 ID) + (Dev4 lastName) + (Dev4 firstName) + (hasPluralSightStatus) \n" +
+        " (Dev5 ID) + (Dev5 lastName) + (Dev5 firstName) + (hasPluralSightStatus) \n" +
+        " (Dev... ID) + (Dev... lastName) + (Dev... firstName) + (hasPluralSightStatus)\n" +
+        $"Report Printed + {todaysDate}"
+        );
+        ReadKey();
+
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        System.Console.WriteLine("1. Return to Main Menu \n"
+                                +"2. Sign Out ");
+        var reportEndNav = ReadLine();
+        {
+            switch (reportEndNav)
+            {
+                case "1": //Enters Main Menu
+                    Console.Clear();
+                    RunApplication();
+                    break;
+                case "2": //Enters Log In Screen
+                    Console.Clear();
+                    LogInScreen();
+                    break;
+                default: //Returns User to "Log In Screen"
+                    Console.Clear();
+                    System.Console.WriteLine("Ah, Ah, Ah - you didn't say the magic words!");
+                    ReadKey();
+                    Console.Clear();
+                    LogInScreen();
+                    break;
+            }
+        };
+        
 
     }
+
 //* 10. Sign Out
-    private void LogInScreen()
+    private void LogInScreen() //todo: Add User Prompt to Enter I.D. , collect and store user and timestamp data for logins
     {
         Console.ForegroundColor = ConsoleColor.DarkGreen;
             System.Console.WriteLine("\n" 
@@ -330,15 +427,15 @@ private void ViewDevIndex()
         {
             switch (userInput)
             {
-                case "1":
+                case "1": //Enters Main Menu
                     Console.Clear();
                     RunApplication();
                     break;
-                case "2":
+                case "2": //Closes Console App
                     Console.Clear();
                     isRunning = false;
                     break;
-                default:
+                default: //Returns User to "Log In Screen"
                     Console.Clear();
                     LogInScreen();
                     break;
