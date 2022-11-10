@@ -5,15 +5,14 @@
 //todo:    Dev class property values all up in there.
 public class DevTeamsManagement_UI
 {
-    public bool isRunning = true;  // Sets condition for program to run
-    public void Run()
+public bool isRunning = true;  // Sets condition for program to run - bool is turned false from LogInScreen
+public void Run()
     {   while (isRunning == true)
-        {RunApplication();};
+        {   
+            LogInScreen();    //* Line 233 (right where you'd expect it, lol)
+        };
     }
-private void AppSignIn()           // Carries User to Log In Screen (could allow for password protection)
-    {
-        LogInScreen();
-    }
+
 private void ReturnToMainMenu()
     {
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
@@ -23,7 +22,7 @@ private void ReturnToMainMenu()
         Console.Clear();
         RunApplication();
     }
-    private void RunApplication()
+private void RunApplication()
     {
         Console.ForegroundColor = ConsoleColor.DarkGreen;
             System.Console.WriteLine("\n" 
