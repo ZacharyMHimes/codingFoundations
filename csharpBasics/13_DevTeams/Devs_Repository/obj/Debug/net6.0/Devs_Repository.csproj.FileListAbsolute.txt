@@ -1,0 +1,15 @@
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/obj/Debug/net6.0/Devs_Repository.csproj.AssemblyReference.cache
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/obj/Debug/net6.0/Devs_Repository.GeneratedMSBuildEditorConfig.editorconfig
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/obj/Debug/net6.0/Devs_Repository.AssemblyInfoInputs.cache
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/obj/Debug/net6.0/Devs_Repository.AssemblyInfo.cs
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/obj/Debug/net6.0/Devs_Repository.csproj.CoreCompileInputs.cache
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/bin/Debug/net6.0/Devs_Repository.deps.json
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/bin/Debug/net6.0/Devs_Repository.dll
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/bin/Debug/net6.0/Devs_Repository.pdb
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/bin/Debug/net6.0/DevTeams.Data.dll
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/bin/Debug/net6.0/DevTeams.Data.pdb
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/obj/Debug/net6.0/Devs_Repository.csproj.CopyComplete
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/obj/Debug/net6.0/Devs_Repository.dll
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/obj/Debug/net6.0/refint/Devs_Repository.dll
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/obj/Debug/net6.0/Devs_Repository.pdb
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/obj/Debug/net6.0/ref/Devs_Repository.dll

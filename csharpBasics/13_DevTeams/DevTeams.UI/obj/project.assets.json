@@ -11,19 +11,6 @@
         "runtime": {
           "bin/placeholder/DevTeams.Data.dll": {}
         }
-      },
-      "DevTeams.Repositories/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "DevTeams.Data": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DevTeams.Repositories.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DevTeams.Repositories.dll": {}
-        }
       }
     }
   },
@@ -32,17 +19,11 @@
       "type": "project",
       "path": "../DevTeams.Data/DevTeams.Data.csproj",
       "msbuildProject": "../DevTeams.Data/DevTeams.Data.csproj"
-    },
-    "DevTeams.Repositories/1.0.0": {
-      "type": "project",
-      "path": "../DevTeams.Repositories/DevTeams.Repositories.csproj",
-      "msbuildProject": "../DevTeams.Repositories/DevTeams.Repositories.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "DevTeams.Data >= 1.0.0",
-      "DevTeams.Repositories >= 1.0.0"
+      "DevTeams.Data >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -72,9 +53,6 @@
           "projectReferences": {
             "/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.Data/DevTeams.Data.csproj": {
               "projectPath": "/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.Data/DevTeams.Data.csproj"
-            },
-            "/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.Repositories/DevTeams.Repositories.csproj": {
-              "projectPath": "/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.Repositories/DevTeams.Repositories.csproj"
             }
           }
         }

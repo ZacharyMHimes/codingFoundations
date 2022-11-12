@@ -1,4 +1,5 @@
 ﻿using static System.Console;
+
 //todo: 2. Figure build Out Developer Class to include needed properties.
 //todo: 3. Make "view developer index" work with Dev. Repository
 //todo: 4. Ask Terry to clarify how Repository draws from data file, so that you can scope out a means to store
@@ -119,6 +120,7 @@ private void ViewDevIndex()
             switch (devIndexNav)
             { 
                 case "1":
+                    
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                         System.Console.WriteLine("\n"
@@ -362,8 +364,18 @@ private void RmvDevProf()
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
         System.Console.WriteLine("Run Report");
         ReadKey();                                                                                             
-
         ResetColor();
+
+        void PrintHRReport() //Defines Print HR Report Method
+        {
+            int[,] devPluralStatusArray = new int[5, 25];
+
+            //foreach(var developer in Developer)
+            {
+                //Console.WriteLine(animal.GetType().Name);
+                                        //animal.Move();
+            }
+
         System.Console.WriteLine
         (
         //Prints to console list of all Devs plus Access status for Web learning tool (has access / needs access) //todo: Figure out how to make "needs pluralsight access" Print Red
@@ -375,6 +387,8 @@ private void RmvDevProf()
         " (Dev... ID) + (Dev... lastName) + (Dev... firstName) + (hasPluralSightStatus)\n" +
         $"Report Printed + {todaysDate}"
         );
+        }
+        PrintHRReport(); // Actually Runs the Method
         ReadKey();
 
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
