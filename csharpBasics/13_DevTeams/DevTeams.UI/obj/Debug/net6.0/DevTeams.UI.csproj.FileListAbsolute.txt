@@ -9,12 +9,12 @@
 /Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.UI/bin/Debug/net6.0/DevTeams.UI.dll
 /Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.UI/bin/Debug/net6.0/DevTeams.UI.pdb
 /Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.UI/bin/Debug/net6.0/DevTeams.Data.dll
-/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.UI/bin/Debug/net6.0/DevTeams.Repositories.dll
 /Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.UI/bin/Debug/net6.0/DevTeams.Data.pdb
-/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.UI/bin/Debug/net6.0/DevTeams.Repositories.pdb
 /Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.UI/obj/Debug/net6.0/DevTeams.UI.csproj.CopyComplete
 /Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.UI/obj/Debug/net6.0/DevTeams.UI.dll
 /Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.UI/obj/Debug/net6.0/refint/DevTeams.UI.dll
 /Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.UI/obj/Debug/net6.0/DevTeams.UI.pdb
 /Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.UI/obj/Debug/net6.0/DevTeams.UI.genruntimeconfig.cache
 /Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.UI/obj/Debug/net6.0/ref/DevTeams.UI.dll
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.UI/bin/Debug/net6.0/Devs_Repository.dll
+/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.UI/bin/Debug/net6.0/Devs_Repository.pdb

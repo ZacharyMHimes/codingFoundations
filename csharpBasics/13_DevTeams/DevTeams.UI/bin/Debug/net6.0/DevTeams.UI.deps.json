@@ -9,23 +9,23 @@
       "DevTeams.UI/1.0.0": {
         "dependencies": {
           "DevTeams.Data": "1.0.0",
-          "DevTeams.Repositories": "1.0.0"
+          "Devs_Repository": "1.0.0"
         },
         "runtime": {
           "DevTeams.UI.dll": {}
         }
       },
-      "DevTeams.Data/1.0.0": {
-        "runtime": {
-          "DevTeams.Data.dll": {}
-        }
-      },
-      "DevTeams.Repositories/1.0.0": {
+      "Devs_Repository/1.0.0": {
         "dependencies": {
           "DevTeams.Data": "1.0.0"
         },
         "runtime": {
-          "DevTeams.Repositories.dll": {}
+          "Devs_Repository.dll": {}
+        }
+      },
+      "DevTeams.Data/1.0.0": {
+        "runtime": {
+          "DevTeams.Data.dll": {}
         }
       }
     }
@@ -36,12 +36,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "DevTeams.Data/1.0.0": {
+    "Devs_Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "DevTeams.Repositories/1.0.0": {
+    "DevTeams.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

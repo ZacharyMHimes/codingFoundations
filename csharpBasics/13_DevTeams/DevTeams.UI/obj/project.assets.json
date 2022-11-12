@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Devs_Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DevTeams.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Devs_Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Devs_Repository.dll": {}
+        }
+      },
       "DevTeams.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -15,6 +28,11 @@
     }
   },
   "libraries": {
+    "Devs_Repository/1.0.0": {
+      "type": "project",
+      "path": "../Devs_Repository/Devs_Repository.csproj",
+      "msbuildProject": "../Devs_Repository/Devs_Repository.csproj"
+    },
     "DevTeams.Data/1.0.0": {
       "type": "project",
       "path": "../DevTeams.Data/DevTeams.Data.csproj",
@@ -23,7 +41,8 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "DevTeams.Data >= 1.0.0"
+      "DevTeams.Data >= 1.0.0",
+      "Devs_Repository >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -51,6 +70,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/Devs_Repository.csproj": {
+              "projectPath": "/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/Devs_Repository/Devs_Repository.csproj"
+            },
             "/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.Data/DevTeams.Data.csproj": {
               "projectPath": "/Users/zacharyhimes/Desktop/ElevenFifty/ElevenFiftyProjects/codingFoundations/csharpBasics/13_DevTeams/DevTeams.Data/DevTeams.Data.csproj"
             }

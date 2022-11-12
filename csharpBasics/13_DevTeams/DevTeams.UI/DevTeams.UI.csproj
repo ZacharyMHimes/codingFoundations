@@ -2,7 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DevTeams.Data\DevTeams.Data.csproj" />
-    <ProjectReference Include="..\DevTeams.Repositories\DevTeams.Repositories.csproj" />
+    <ProjectReference Include="..\Devs_Repository\Devs_Repository.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
