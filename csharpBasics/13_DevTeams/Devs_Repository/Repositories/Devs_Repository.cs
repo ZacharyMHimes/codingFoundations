@@ -1,27 +1,30 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq.Expressions;
+using System.Collections.Generic;
 using static System.Console;
 public class Devs_Repository
 {
 // Fake Database
 private readonly List<Developer> _devDb = new List<Developer>();
-private int _count = 0;
+private int _count;
+
+// Initial database of dev profiles generated from info stored in SeedData method.
+public Devs_Repository()
+    {
+        PopulateFromStored();
+    }
 
 //C.R.U.D -> Create, Read , Update , and Delete  (methods)
 
 //todo CREATE METHOD
 public bool AddDevProfile(Developer profile)
     {
-        int startingCount = _devDb.Count;
-        _devDb.Add(profile);
+        return (profile is null) ? false : AddToDatabase(profile);
+    }
 
-        if (_devDb.Count > startingCount)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+    private bool AddToDatabase(Developer profile)
+    {
+        _devDb.Add(profile);
+        return true;
     }
 
 //todo READ METHODS:
@@ -58,7 +61,7 @@ public Developer GetDeveloperByFirstName(string searchFirstName)
 
 public Developer GetDeveloperByLastName(string searchLastName)
     {
-        foreach (var profile  in _devDb)
+        foreach (Developer profile  in _devDb)
         {
             if (profile.LastName == searchLastName)
             {
@@ -92,4 +95,30 @@ public bool DeleteExistingProfile(Developer existingProfile)
         return deleteResult;                                // when functioning, should return 'true' allowing conditionals
     }                                                       //  to prompt UI text output
 
+//* Not a C.R.U.D.  method - populates first example of repo up top.
+private void PopulateFromStored()
+{
+
+    var profileA = new Developer( _count++,"Borg", "Borgenson", false );
+    var profileB = new Developer( _count++,"Corg", "Corgenson", true );
+    var profileC = new Developer( _count++,"Dorg", "Dorgenson", false );
+    var profileD = new Developer( _count++,"Forg", "Forgenson", false );
+    var profileE = new Developer( _count++,"Gorg", "Gorgenson", true );
+    var profileF = new Developer( _count++,"Horg", "Horgenson", false );
+    var profileG = new Developer( _count++,"Jorg", "Jorgenson", false );
+    var profileH = new Developer( _count++,"Korg", "Korgenson", true );
+    var profileI = new Developer( _count++,"Lorg", "Lorgenson", false);
+    var profileJ = new Developer( _count++,"Morg", "Morgenson", true );
+
+    AddDevProfile(profileA);
+    AddDevProfile(profileB);
+    AddDevProfile(profileC);
+    AddDevProfile(profileD);
+    AddDevProfile(profileE);
+    AddDevProfile(profileF);
+    AddDevProfile(profileG);
+    AddDevProfile(profileH);
+    AddDevProfile(profileI);
+    AddDevProfile(profileJ);
+}
 }

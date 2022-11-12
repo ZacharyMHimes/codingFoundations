@@ -1,4 +1,5 @@
-//'Streaming Content' - Info Deliverable to User via UI
+//* This class describes the qualities of each developer 
+//* held by the developer repository list.
 public class Developer
 {
 //* Example Constructor
@@ -9,8 +10,7 @@ public class Developer
         int devID,
         string firstName, 
         string lastName, 
-        bool hasPluralsight,
-        string pluralsightHRReport
+        bool hasPluralsight
     )
     {   
         Id = devID;
@@ -25,29 +25,16 @@ public class Developer
 
     //* Properties
     //  "Unique Identifier" (hint hint probably)
-    public int Id = 1;
+    public int Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string FullName
     {
         get
         {
-            return $"{FirstName} {LastName}";
+            return $"{FirstName} {LastName},";
         }
     }
     public bool HasPluralsight { get; set; }
-    public string PluralsightHRReport
-    {
-        get
-        {
-            if (HasPluralsight == false)
-            {
-                return $"Needs access to Pluralsight";
-            }
-            else
-            {
-                return $"                           ";
-            }
-        }
-    }
+    
 }

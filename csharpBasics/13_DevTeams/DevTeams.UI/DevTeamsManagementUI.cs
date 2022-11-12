@@ -1,13 +1,140 @@
 ﻿using static System.Console;
 
-//todo: 2. Figure build Out Developer Class to include needed properties.
-//todo: 3. Make "view developer index" work with Dev. Repository
-//todo: 4. Ask Terry to clarify how Repository draws from data file, so that you can scope out a means to store
-//todo: 5. Ask Terry what a better class for line 49 would be (potentially Enum?)
-//todo:    Dev class property values all up in there.
 public class DevTeamsManagement_UI
 {
+private DevMenu_UI _devMenuUI;
+private RunPluralSight_UI _runPluralUI;
+private Devs_Repository _devRepo;
+public DevTeamsManagement_UI()
+{
+        _devRepo = new Devs_Repository();
+        _devMenuUI = new DevMenu_UI();
+        _runPluralUI = new RunPluralSight_UI();
+        //_devTeamUI = new DeveloperTeamUI(_devRepo);
+}
+public bool isRunning = true; 
+public void Run()
+    {   while (isRunning == true)
+        {   
+            RunApplication();
+        };
+    } 
+/* LOG IN SCREEN
+private void LogInScreen()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+            System.Console.WriteLine("\n" 
+            + "                                                                                                                \n" 
+            + "                                Komodo Insurance Dev Team Management Application                                \n");
+        ResetColor(); 
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+            System.Console.WriteLine("\n"
+            + "                              'We'll absolve your corporation of ALL liability!!!'                               \n");
+        ResetColor();
+        Console.ForegroundColor = ConsoleColor.DarkCyan;
+            System.Console.WriteLine("\n"
+            +"Press '1' to Main Menu \n"
+            +"Press '2' to Close Application");
+        ResetColor();
+            
+        var userInput = ReadLine();
+        {
+            switch (userInput)
+            {
+                case "1": //Enters Main Menu
+                    Console.Clear();
+                    RunApplication();
+                    break;
+                case "2": //Closes Console App
+                    Console.Clear();
+                    isRunning = false;
+                    break;
+                default: //Returns User to "Log In Screen"
+                    Console.Clear();
+                    LogInScreen();
+                    break;
+            }
+        };
+    }
+*/
+//* MAIN MENU
+private void RunApplication()
+    {   Console.Clear();
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+            System.Console.WriteLine("\n" 
+            + "                                                                                                                \n" 
+            + "                                Komodo Insurance Dev Team Management Application                                \n"   
+            + "                                                   Main Menu Options                                            \n"); 
+        ResetColor();                                                                                                               
+
+            System.Console.WriteLine("\n"
+            + "                                                                                                                \n"
+            + "     1. Manage Developers                                                          6. Manage Teams              \n" //4. Display Developer Profile  (Allows search by ID number - displays details)
+            + "     2. Add New Developer Profile                                                  7. Run HR Pluralsight Report \n" //5. Edit Developer Profile
+            + "     3. Remove Developer Profile                                                   8. ------------              \n" //6. Manage Teams (1.View All Teams  2.Assign New Team  3.Remove Team 4.Remove All Teams )
+            + "     4. Search Developer By I.D. #                                                 9. ------------              \n" //7. Run HR Pluralsight Report (Prints Employee Directory w/ "Needs Access" text next to names w/o)
+            + "     5. Edit Developer Profile                                                     10.Application Sign Out     \n" //10. Ends Program
+            + "                                                                                                                \n"
+            + "                                                                                                                \n"); //todo: Figure out how to color Specific Text w/in writeline
+    
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            System.Console.WriteLine("\n"
+            + " Please Enter a Menu Number:");
+            ResetColor();
+
+            var mainMenuNav = ReadLine();
+            switch (mainMenuNav)
+            {
+                case "1":
+                    
+                    Console.Clear();
+                    _devMenuUI.Run();
+                    break;
+                case "2":
+                    Console.Clear();
+                    //AddNewDevProf();
+                    break;
+                case "3":
+                    Console.Clear();
+                    
+                    break;
+                case "4":
+                    Console.Clear();
+                    //SearchDev();
+                    break;
+                case "5":
+                    Console.Clear();
+                    //EditDevProf();
+                    break;
+                case "6":
+                    Console.Clear();
+                    //_teamMenuUI.Run();
+                    break;
+                case "7":
+                    Console.Clear();
+                    _runPluralUI.Run();
+                    break;
+                case "10":
+                    Console.Clear();
+                    isRunning = false;
+                    break;   
+                default:
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    WriteLine("Invalid Selection, Please Enter an Integer Value");
+                    ResetColor();
+                    ReadLine();
+                    break;
+            }
+    
+    }
+}
+/*private Devs_Repository _devRepo;
+public DevTeamsManagement_UI()
+{
+    _devRepo = new Devs_Repository();
+}
 public bool isRunning = true;  // Sets condition for program to run - bool is turned false from LogInScreen
+private readonly List<Developer> _devDb = new List<Developer>();
 public void Run()
     {   while (isRunning == true)
         {   
@@ -105,7 +232,7 @@ private void ViewDevIndex()
         ResetColor();                                                                                                                
             System.Console.WriteLine("\n"
             + "                                                                                                                \n"
-            + "     1. List All Developer Profiles By I.D.#                                       6. ------------              \n"
+            + "     1. List All Developer Profiles                                                6. ------------              \n"
             + "     2. List All Teamed Devs By I.D.#                                              7. ------------              \n"
             + "     3. List All Unteamed Devs By I.D. #                                           8. ------------              \n" 
             + "     4. List All Devs By Team                                                      9. ------------              \n" 
@@ -122,6 +249,7 @@ private void ViewDevIndex()
                 case "1":
                     
                     Console.Clear();
+
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                         System.Console.WriteLine("\n"
                         +"                                        Current Developer Profiles In Use:                                         ");
@@ -456,5 +584,19 @@ private void RmvDevProf()
             }
         };
     }
-    
-}
+/* private string GetPluralsightHRReport()
+        {
+            {
+                foreach (Developer profile in _devDb)
+                {
+                    if (profile.HasPluralsight == !true)
+                    {
+                        return $"Needs access to Pluralsight";
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                };
+            }
+        }  */  
