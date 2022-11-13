@@ -4,7 +4,7 @@ public class Devs_Repository
 {
 // Fake Database
 private readonly List<Developer> _devDb = new List<Developer>();
-private int _count;
+private int _count = 116478;
 
 // Initial database of dev profiles generated from info stored in SeedData method.
 public Devs_Repository()
@@ -20,8 +20,10 @@ public bool AddDevProfile(Developer profile)
         return (profile is null) ? false : AddToDatabase(profile);
     }
 
-    public bool AddToDatabase(Developer profile)
+public bool AddToDatabase(Developer profile)
     {
+        _count++;
+        profile.Id=_count;
         _devDb.Add(profile);
         return true;
     }
@@ -44,6 +46,20 @@ public Developer GetDeveloperByID(int searchId) //gets by Id
             }
         }
         return null;                    //if not, returns NOTHING >:^}
+    }
+public bool ValidateDeveloperInDatabase(int searchId)
+    {
+        Developer profile = GetDeveloperByID(searchId);
+        if (profile != null)
+        {
+            Clear();
+            return true;
+        }
+        else
+        {
+            WriteLine($"Found No Developer associated with ID: {searchId}");
+            return false;
+        }
     }
 
 public Developer GetDeveloperByFirstName(string searchFirstName)

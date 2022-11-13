@@ -1,16 +1,16 @@
 using static System.Console;
 public class DevMenu_UI
 {
-    private Devs_Repository _devRepo;
-    private bool isRunningDevUI;
-    //private DeveloperTeamUI _dtUI;
+private Devs_Repository _devRepo;
+private bool isRunningDevUI;
+//private DeveloperTeamUI _dtUI;
 
-    public DevMenu_UI()
-        {
+public DevMenu_UI()
+    {
         _devRepo = new Devs_Repository();
         //_devUI = new DeveloperUI();
         //_devTeamUI = new DeveloperTeamUI(_devRepo);
-        }
+    }
 
 public void Run()
         {
@@ -47,7 +47,7 @@ private void ViewDevIndex()
             + "     2. List All Teamed Devs                                                       7. Remove Dev Profile        \n"
             + "     3. List All Unteamed Devs                                                     8. ------------              \n" 
             + "     4. List All Devs By Team                                                      9. ------------              \n" 
-            + "     5. Return to Main                                                             10.------------              \n" 
+            + "     5. -------------                                                             10. Return to Main            \n" 
             + "                                                                                                                \n"
             + "                                                                                                                \n"); 
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
@@ -104,7 +104,7 @@ private void ViewDevIndex()
                         );
                         DevIndexMenuReturn();
                     break;
-                case "5":
+                case "10":
                     Console.Clear();
                     CloseDevMenu();
                     break;
@@ -113,7 +113,7 @@ private void ViewDevIndex()
                     AddDevProfile();
                     break;
                 case "7":
-                    UserSearchId();
+                    RemoveADeveloper();
                     //ListAllDeveloperProfilesToSearch();
                     break;
                 default:
@@ -262,27 +262,36 @@ private void DisplayDevProfile(Developer profile)
         System.Console.WriteLine(profile);
     }
 
-private void UserSearchId()
-            {
-                System.Console.WriteLine("Please Enter Developer ID number");           
-                int searchId = int.Parse(Console.ReadLine());
-                
-            }
-/*
-private bool ValidateDeveloperInDatabase(int searchId)
+private void RemoveADeveloper()
     {
-        Developer profile = GetDeveloperById(int searchId);
-        if (profile != null)
+        Clear();
+        try
         {
-            Clear();
-            return true;
+            WriteLine("Enter the Id number of the profile you want to remove");
+            int usersearchId = int.Parse(ReadLine());
+            Developer profile = _devRepo.GetDeveloperByID(usersearchId);
+            WriteLine($"Found profile: {profile.Id} {profile.FullName} ");
+            WriteLine($"Do you want to Delete this Developer? y/n?");
+            string userInputDeleteDev = ReadLine();
+            if (userInputDeleteDev == "Y".ToLower())
+            {
+                if (_devRepo.DeleteExistingProfile(profile))
+                {
+                    WriteLine($" profile: {profile.Id} {profile.FullName}, has been cast into the shadow.");
+                }
+                else
+                {
+                    WriteLine($"The Developer with the Id: {usersearchId}, was NOT Deleted.");
+                }
+            }
         }
-        else
+        catch
         {
-            WriteLine($"Could Not Find Developer ID: {userInputDevId}");
-            return false;
+        
         }
+
+        ReadKey();
     }
-    }
-*/
 }
+
+
