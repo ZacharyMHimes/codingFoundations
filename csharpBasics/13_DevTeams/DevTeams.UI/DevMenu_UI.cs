@@ -65,7 +65,7 @@ private void ViewDevIndex()
                         System.Console.WriteLine("\n"
                         +"                                        Current Developer Profiles In Use:                                         ");
                     ResetColor();
-                        ListAllDeveloperProfiles(); //method
+                        ListAllDeveloperProfilesToDisplay();
                         DevIndexMenuReturn();
                     break;
                 case "2":
@@ -108,6 +108,14 @@ private void ViewDevIndex()
                     Console.Clear();
                     CloseDevMenu();
                     break;
+                case "6":
+                    Console.Clear();
+                    AddDevProfile();
+                    break;
+                case "7":
+                    UserSearchId();
+                    //ListAllDeveloperProfilesToSearch();
+                    break;
                 default:
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     WriteLine("Invalid Selection, Please enter an Integer value");
@@ -126,13 +134,81 @@ private void DevIndexMenuReturn()
         Console.Clear();
         ViewDevIndex();
     }
-private void ListAllDeveloperProfiles()
+
+public void AddDevProfile()
     {
-        List<Developer> devsInDb = _devRepo.GetAllDevelopers();
-        ValidateDeveloperDatabaseData(devsInDb);
+        try
+        {
+            Developer profile = UserProfileInput();
+            if (_devRepo.AddToDatabase(profile))
+            {
+                System.Console.WriteLine($"Now You've gone and done it! {profile.FullName} has been added! >:^c ");
+            }
+            else
+            { 
+                System.Console.WriteLine("Unable to add new Dev Profile");
+                ReadKey();
+                DevIndexMenuReturn();
+            }
+        }
+        catch 
+        {
+                System.Console.WriteLine("Unable to add new Dev Profile");
+                ReadKey();
+                DevIndexMenuReturn(); 
+        }
+        DevIndexMenuReturn();
     }
 
-private void ValidateDeveloperDatabaseData(List<Developer> devsInDb)
+private Developer UserProfileInput()
+    {
+        Developer profile = new Developer();
+
+        WriteLine("What is the Developers first name?");
+        profile.FirstName = ReadLine();
+
+        WriteLine("What is the Developers Last name?");
+        profile.LastName = ReadLine();
+
+        bool hasMadeSelection = false;
+
+        while (!hasMadeSelection)
+        {
+            WriteLine("Does this Developer have a Pluralsight Account?\n" +
+                "1. yes\n" +
+                "2. no\n");
+
+            string userInputPsAcct = ReadLine();
+            switch (userInputPsAcct)
+            {
+                case "1":
+                    profile.HasPluralsight = true;
+                    hasMadeSelection = true;
+                    break;
+
+                case "2":
+                    profile.HasPluralsight = false;
+                    hasMadeSelection = true;
+                    break;
+
+                default:
+                    WriteLine("Invalid Selection");
+                    DevIndexMenuReturn();
+                    break;
+            }
+        }
+
+        return profile;
+    }
+    
+private void ListAllDeveloperProfilesToDisplay()
+    {
+        List<Developer> devsInDb = _devRepo.GetAllDevelopers();
+        ValidateDatabase_PrintData(devsInDb);
+    }
+
+
+private void ValidateDatabase_PrintData(List<Developer> devsInDb)
     {
         if (devsInDb.Count > 0)
         {
@@ -151,8 +227,62 @@ private void ValidateDeveloperDatabaseData(List<Developer> devsInDb)
             DevIndexMenuReturn();
         }
     }
+
+/*
+private void ListAllDeveloperProfilesToSearch()
+    {
+        List<Developer> devsInDb = _devRepo.GetAllDevelopers();
+        ValidateDatabase_RemoveDev(devsInDb);
+    }
+*/
+/*
+public void ValidateDatabase_RemoveDev(List<Developer> devsInDb)
+    {
+        if (devsInDb.Count > 0)
+        {
+            foreach (Developer profile in devsInDb)
+            {
+                if (profile.Id = int searchId)
+                {
+                    
+                }
+            }
+        }
+        else
+        {
+            WriteLine("No Developer Profiles Found.");
+            ReadKey();
+            DevIndexMenuReturn();
+        }
+    }
+*/
+
 private void DisplayDevProfile(Developer profile)
     {
         System.Console.WriteLine(profile);
     }
+
+private void UserSearchId()
+            {
+                System.Console.WriteLine("Please Enter Developer ID number");           
+                int searchId = int.Parse(Console.ReadLine());
+                
+            }
+/*
+private bool ValidateDeveloperInDatabase(int searchId)
+    {
+        Developer profile = GetDeveloperById(int searchId);
+        if (profile != null)
+        {
+            Clear();
+            return true;
+        }
+        else
+        {
+            WriteLine($"Could Not Find Developer ID: {userInputDevId}");
+            return false;
+        }
+    }
+    }
+*/
 }

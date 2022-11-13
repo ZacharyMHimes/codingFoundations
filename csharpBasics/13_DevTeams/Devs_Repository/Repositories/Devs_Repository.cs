@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-using System.Collections.Generic;
+﻿
 using static System.Console;
 public class Devs_Repository
 {
@@ -21,7 +20,7 @@ public bool AddDevProfile(Developer profile)
         return (profile is null) ? false : AddToDatabase(profile);
     }
 
-    private bool AddToDatabase(Developer profile)
+    public bool AddToDatabase(Developer profile)
     {
         _devDb.Add(profile);
         return true;

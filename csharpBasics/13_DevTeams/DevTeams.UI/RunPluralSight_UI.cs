@@ -10,8 +10,6 @@ public class RunPluralSight_UI //Contains Pluralsight report app
     public RunPluralSight_UI()
         {
         _devRepo = new Devs_Repository();
-        //_devUI = new DeveloperUI();
-        //_devTeamUI = new DeveloperTeamUI(_devRepo);
         }
 
 public void Run()
@@ -24,6 +22,12 @@ private void RunReport()
             isRunningPluralReportUI = true;
             while (isRunningPluralReportUI)
                 {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            System.Console.WriteLine("\n" 
+            + "                                                                                                                \n" 
+            + "                                      Komodo Insurance Dev Team Management Application                            "); Console.ForegroundColor = ConsoleColor.Green; System.Console.WriteLine(  
+            "                                                    Reptile Resources Report                                      \n"); 
+                    ResetColor();                                                                                                               
                     GetReport();
                     ReadKey();
                     CloseReport();
@@ -31,7 +35,6 @@ private void RunReport()
         }
 private void CloseReport()
         {
-            Console.Clear();
             isRunningPluralReportUI = false;   
         }
 
@@ -46,7 +49,7 @@ private void ListAllDeveloperProfiles()
         ValidateDatabase_and_PrintReport(devsInDb);
     }
 
-private void ValidateDatabase_and_PrintReport(List<Developer> devsInDb)
+private void ValidateDatabase_and_PrintReport(List<Developer> devsInDb)//todo Figure how to print read access text on same line
     {
         if (devsInDb.Count > 0)
         {
@@ -75,5 +78,4 @@ private void ValidateDatabase_and_PrintReport(List<Developer> devsInDb)
             CloseReport();
         }
     }
-
 }

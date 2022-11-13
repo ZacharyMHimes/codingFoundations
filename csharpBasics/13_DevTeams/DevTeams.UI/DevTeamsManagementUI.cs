@@ -63,18 +63,16 @@ private void RunApplication()
         Console.ForegroundColor = ConsoleColor.DarkGreen;
             System.Console.WriteLine("\n" 
             + "                                                                                                                \n" 
-            + "                                Komodo Insurance Dev Team Management Application                                \n"   
-            + "                                                   Main Menu Options                                            \n"); 
-        ResetColor();                                                                                                               
-
+            + "                                   Komodo Insurance Dev Team Management Application                              ");  Console.ForegroundColor = ConsoleColor.DarkYellow;System.Console.WriteLine(
+            "                                                    Main Menu Options                                            \n"); 
+        ResetColor();                                                                                                              
             System.Console.WriteLine("\n"
             + "                                                                                                                \n"
             + "     1. Manage Developers                                                          6. Manage Teams              \n" //4. Display Developer Profile  (Allows search by ID number - displays details)
-            + "     2. Add New Developer Profile                                                  7. Run HR Pluralsight Report \n" //5. Edit Developer Profile
-            + "     3. Remove Developer Profile                                                   8. ------------              \n" //6. Manage Teams (1.View All Teams  2.Assign New Team  3.Remove Team 4.Remove All Teams )
-            + "     4. Search Developer By I.D. #                                                 9. ------------              \n" //7. Run HR Pluralsight Report (Prints Employee Directory w/ "Needs Access" text next to names w/o)
-            + "     5. Edit Developer Profile                                                     10.Application Sign Out     \n" //10. Ends Program
-            + "                                                                                                                \n"
+            + "     2. -----------------------                                                    7. Run HR Pluralsight Report \n" //5. Edit Developer Profile
+            + "     3. -----------------------                                                    8. ------------              \n" //6. Manage Teams (1.View All Teams  2.Assign New Team  3.Remove Team 4.Remove All Teams )
+            + "     4. -----------------------                                                    9. ------------              \n" //7. Run HR Pluralsight Report (Prints Employee Directory w/ "Needs Access" text next to names w/o)
+            + "     5. -----------------------                                                    10.Application Sign Out     \n" //10. Ends Program
             + "                                                                                                                \n"); //todo: Figure out how to color Specific Text w/in writeline
     
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
@@ -89,22 +87,6 @@ private void RunApplication()
                     
                     Console.Clear();
                     _devMenuUI.Run();
-                    break;
-                case "2":
-                    Console.Clear();
-                    //AddNewDevProf();
-                    break;
-                case "3":
-                    Console.Clear();
-                    
-                    break;
-                case "4":
-                    Console.Clear();
-                    //SearchDev();
-                    break;
-                case "5":
-                    Console.Clear();
-                    //EditDevProf();
                     break;
                 case "6":
                     Console.Clear();
