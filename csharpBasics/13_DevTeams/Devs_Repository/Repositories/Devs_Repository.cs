@@ -2,11 +2,9 @@
 using static System.Console;
 public class Devs_Repository
 {
-// Fake Database
 private readonly List<Developer> _devDb = new List<Developer>();
 private int _count = 116478;
 
-// Initial database of dev profiles generated from info stored in SeedData method.
 public Devs_Repository()
     {
         PopulateFromStored();
@@ -45,7 +43,7 @@ public Developer GetDeveloperByID(int searchId) //gets by Id
                 return profile;         //returns full profile
             }
         }
-        return null;                    //if not, returns NOTHING >:^}
+        return null;                   
     }
 public bool ValidateDeveloperInDatabase(int searchId)
     {

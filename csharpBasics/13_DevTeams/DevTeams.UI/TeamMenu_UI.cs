@@ -1,5 +1,4 @@
 using static System.Console;
-
 public class TeamMenu_UI
 {
 private Devs_Repository _devRepo;
@@ -60,47 +59,12 @@ private void ViewTeamIndex()
             switch (devIndexNav)
             { 
                 case "1":
-                    
                     Console.Clear();
-
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                         System.Console.WriteLine("\n"
                         +"                                        Current Team Configuration In Use:                                         ");
                     ResetColor();
                         ListAllTeams_ToDisplay();
-                    break;
-                case "2":
-                    Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        System.Console.WriteLine("\n"
-                        +"                                        Current Developer Profiles On Teams:                                        ");
-                    ResetColor();
-                        //ListAllDeveloperProfilesOnTeams(); //method
-                        ReadKey();
-                    break;
-                case "3":
-                    Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        System.Console.WriteLine("\n"
-                        +"                                        Current Developer Profiles Not On Teams:                                    ");
-                    ResetColor();
-                        System.Console.WriteLine
-                        (
-                            //Conditional: bool hasTeam (if !true, print. If not, pass)
-                            //External Reference to Developer Class Database. Print Format: I.D.# , lastName, firstName, teamName(null) 
-                        );
-                    break;
-                case "4":
-                    Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        System.Console.WriteLine("\n"
-                        +"                                        Current Developer Profiles By Team Roster:                                  ");
-                    ResetColor();
-                        System.Console.WriteLine
-                        (
-                            //External Reference to DevTeam Class Database. Print Format: Team Name, Team Members (I.D.# , lastName , FirstName)
-                            //todo: Figure out how to format the Team Roster print line.
-                        );
                     break;
                 case "10":
                     Console.Clear();
@@ -108,11 +72,11 @@ private void ViewTeamIndex()
                     break;
                 case "6":
                     Console.Clear();
-                    //AddTeamProfile();
+                    AddTeamToDatabase();
                     break;
                 case "7":
                     Console.Clear();
-                    //ListAllDeveloperProfilesToDelete();
+                    //RemoveTeamFromDatabase();
                     break;
                 default:
                     Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -126,8 +90,8 @@ private void ViewTeamIndex()
 
 private void ListAllTeams_ToDisplay()
     {
-        List<Team> teamsInDb = _teams.GetDeveloperTeams();
-        ValidateTeams_PrintRosters(_teams.GetDeveloperTeams());
+        List<Team> teamsInDb = _teams.GetAllTeams();
+        ValidateTeams_PrintRosters(_teams.GetAllTeams());
     }
 
 private void ValidateTeams_PrintRosters(List<Team> teamsInDb)
@@ -137,7 +101,7 @@ private void ValidateTeams_PrintRosters(List<Team> teamsInDb)
         {
             foreach (Team team in teamsInDb)
             System.Console.WriteLine(
-                $"{team.TeamId}  {team.TeamName}"
+                $"{team.TeamId}"
                 );
             ReadKey();
             OpenTeamMenu();
@@ -148,6 +112,91 @@ private void ValidateTeams_PrintRosters(List<Team> teamsInDb)
             ReadKey();
             OpenTeamMenu();
         }
+    }
+
+
+private Team NewTeamProfile()
+    {
+        try
+        {
+            Team team = new Team();
+            WriteLine("Please enter the DevTeam Name:");
+            team.TeamName = ReadLine();
+
+            bool hasFilledPositions = false;
+
+            List<Developer> auxDevelopers = _devRepo.GetAllDevelopers();
+
+            while (!hasFilledPositions)
+            {
+                WriteLine("Does this team have any Developers? y/n");
+                string userInputAnyDevs = ReadLine();
+                if (userInputAnyDevs == "Y".ToLower())
+                {
+                    if (auxDevelopers.Count() > 0)
+                    {
+                        DisplayDevelopers_ToAdd(auxDevelopers);
+                        WriteLine("Select the Dev you want on this team by DevId.");
+                        var userInputDevId = int.Parse(ReadLine());
+                        Developer selectedDev = _devRepo.GetDeveloperByID(userInputDevId);
+                        if (selectedDev != null)
+                        {
+                            team.TeamMembers.Add(selectedDev);
+                            auxDevelopers.Remove(selectedDev);
+                        }
+                        else
+                        {
+                            WriteLine($"Could not find profile: {userInputDevId}.");
+                        }
+                    }
+                    else
+                    {
+                        WriteLine("Could Not Find Developers to Add.");
+                        ReadKey();
+                        break;
+                    }
+                }
+                else
+                {
+                    hasFilledPositions = true;
+                }
+            }
+            return team;
+
+        }
+        catch
+        {
+            System.Console.WriteLine("Sorry - Could not Complete Request.");
+            ReadKey();
+        }
+        return null;
+    }
+
+private void DisplayDevelopers_ToAdd(List<Developer> devsInDb)
+    {
+        if (devsInDb.Count > 0)
+        {
+            foreach (Developer profile in devsInDb)
+            {
+            System.Console.WriteLine($" {profile.Id}   {profile.FirstName}   {profile.LastName}");
+            }
+        }
+        else
+        {
+            WriteLine("No Developer Profiles Found.");
+            ReadKey();
+        }
+    }
+
+private void AddTeamToDatabase()
+    {
+        Team newTeam = NewTeamProfile();
+        if ( _teams.AddTeamProfile(newTeam))
+            {System.Console.WriteLine($"New Team: {newTeam.TeamName} Created.");}
+        else{
+            System.Console.WriteLine("Sorry - Could not Complete Request.");
+            ReadKey();
+            };
     }
 
 }

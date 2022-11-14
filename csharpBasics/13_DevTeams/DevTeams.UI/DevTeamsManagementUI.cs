@@ -20,7 +20,7 @@ public void Run()
             RunApplication();
         };
     } 
-/* LOG IN SCREEN
+/* LOG IN SCREEN //* Save for implementation on other projects
 private void LogInScreen()
     {
         Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -69,13 +69,12 @@ private void RunApplication()
         ResetColor();                                                                                                              
             System.Console.WriteLine("\n"
             + "                                                                                                                \n"
-            + "     1. Manage Developers                                                          6. Manage Teams              \n" //4. Display Developer Profile  (Allows search by ID number - displays details)
-            + "     2. -----------------------                                                    7. Run HR Pluralsight Report \n" //5. Edit Developer Profile
-            + "     3. -----------------------                                                    8. ------------              \n" //6. Manage Teams (1.View All Teams  2.Assign New Team  3.Remove Team 4.Remove All Teams )
-            + "     4. -----------------------                                                    9. ------------              \n" //7. Run HR Pluralsight Report (Prints Employee Directory w/ "Needs Access" text next to names w/o)
-            + "     5. -----------------------                                                    10.Application Sign Out     \n" //10. Ends Program
-            + "                                                                                                                \n"); //todo: Figure out how to color Specific Text w/in writeline
-    
+            + "     1. Manage Developers                                                          6. Manage Teams              \n"
+            + "     2. -----------------------                                                    7. Run HR Pluralsight Report \n" 
+            + "     3. -----------------------                                                    8. ------------              \n" 
+            + "     4. -----------------------                                                    9. ------------              \n" 
+            + "     5. -----------------------                                                    10.Application Sign Out     \n" 
+            + "                                                                                                                \n"); 
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             System.Console.WriteLine("\n"
             + " Please Enter a Menu Number:");

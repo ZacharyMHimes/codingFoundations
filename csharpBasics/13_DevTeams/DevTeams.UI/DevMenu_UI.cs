@@ -66,42 +66,6 @@ private void ViewDevIndex()
                         ListAllDeveloperProfilesToDisplay();
                         DevIndexMenuReturn();
                     break;
-                case "2":
-                    Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        System.Console.WriteLine("\n"
-                        +"                                        Current Developer Profiles On Teams:                                        ");
-                    ResetColor();
-                        //ListAllDeveloperProfilesOnTeams(); //method
-                        ReadKey();
-                        DevIndexMenuReturn();
-                    break;
-                case "3":
-                    Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        System.Console.WriteLine("\n"
-                        +"                                        Current Developer Profiles Not On Teams:                                    ");
-                    ResetColor();
-                        System.Console.WriteLine
-                        (
-                            //Conditional: bool hasTeam (if !true, print. If not, pass)
-                            //External Reference to Developer Class Database. Print Format: I.D.# , lastName, firstName, teamName(null) 
-                        );
-                        DevIndexMenuReturn();
-                    break;
-                case "4":
-                    Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        System.Console.WriteLine("\n"
-                        +"                                        Current Developer Profiles By Team Roster:                                  ");
-                    ResetColor();
-                        System.Console.WriteLine
-                        (
-                            //External Reference to DevTeam Class Database. Print Format: Team Name, Team Members (I.D.# , lastName , FirstName)
-                            //todo: Figure out how to format the Team Roster print line.
-                        );
-                        DevIndexMenuReturn();
-                    break;
                 case "10":
                     Console.Clear();
                     CloseDevMenu();
@@ -203,13 +167,12 @@ private Developer UserProfileInput()
 private void ListAllDeveloperProfilesToDisplay()
     {
         List<Developer> devsInDb = _devRepo.GetAllDevelopers();
-        ValidateDatabase_PrintData(devsInDb);
+        ValidateDatabase_DisplayDevelopers(devsInDb);
     }
-private void ValidateDatabase_PrintData(List<Developer> devsInDb)
+private void ValidateDatabase_DisplayDevelopers(List<Developer> devsInDb)
     {
         if (devsInDb.Count > 0)
         {
-            //Clear();
             foreach (Developer profile in devsInDb)
             {
             System.Console.WriteLine($" {profile.Id}   {profile.FirstName}   {profile.LastName}");
@@ -225,40 +188,10 @@ private void ValidateDatabase_PrintData(List<Developer> devsInDb)
         }
     }
 
-/*
-private void ListAllDeveloperProfilesToSearch()
-    {
-        List<Developer> devsInDb = _devRepo.GetAllDevelopers();
-        ValidateDatabase_RemoveDev(devsInDb);
-    }
-*/
-/*
-public void ValidateDatabase_RemoveDev(List<Developer> devsInDb)
-    {
-        if (devsInDb.Count > 0)
-        {
-            foreach (Developer profile in devsInDb)
-            {
-                if (profile.Id = int searchId)
-                {
-                    
-                }
-            }
-        }
-        else
-        {
-            WriteLine("No Developer Profiles Found.");
-            ReadKey();
-            DevIndexMenuReturn();
-        }
-    }
-*/
-
 private void DisplayDevProfile(Developer profile)
     {
         System.Console.WriteLine(profile);
     }
-
 private void ListAllDeveloperProfilesToDelete()
     {
         List<Developer> devsInDb = _devRepo.GetAllDevelopers();
@@ -284,10 +217,8 @@ private void Validate_RemoveOptions(List<Developer> devsInDb)
             DevIndexMenuReturn();
         }
     }
-
 private void RemoveADeveloper()
     {
-        Clear();
         try
         {            
             int usersearchId = int.Parse(ReadLine());
