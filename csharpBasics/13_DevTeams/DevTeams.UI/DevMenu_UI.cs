@@ -8,8 +8,6 @@ private bool isRunningDevUI;
 public DevMenu_UI()
     {
         _devRepo = new Devs_Repository();
-        //_devUI = new DeveloperUI();
-        //_devTeamUI = new DeveloperTeamUI(_devRepo);
     }
 
 public void Run()
@@ -113,8 +111,8 @@ private void ViewDevIndex()
                     AddDevProfile();
                     break;
                 case "7":
-                    RemoveADeveloper();
-                    //ListAllDeveloperProfilesToSearch();
+                    Console.Clear();
+                    ListAllDeveloperProfilesToDelete();
                     break;
                 default:
                     Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -125,6 +123,7 @@ private void ViewDevIndex()
                 
                     }
     }
+    
 private void DevIndexMenuReturn()
     {
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
@@ -206,8 +205,6 @@ private void ListAllDeveloperProfilesToDisplay()
         List<Developer> devsInDb = _devRepo.GetAllDevelopers();
         ValidateDatabase_PrintData(devsInDb);
     }
-
-
 private void ValidateDatabase_PrintData(List<Developer> devsInDb)
     {
         if (devsInDb.Count > 0)
@@ -262,12 +259,37 @@ private void DisplayDevProfile(Developer profile)
         System.Console.WriteLine(profile);
     }
 
+private void ListAllDeveloperProfilesToDelete()
+    {
+        List<Developer> devsInDb = _devRepo.GetAllDevelopers();
+        Validate_RemoveOptions(devsInDb);
+    }
+private void Validate_RemoveOptions(List<Developer> devsInDb)
+    {
+        if (devsInDb.Count > 0)
+        {
+            foreach (Developer profile in devsInDb)
+            {
+            System.Console.WriteLine($" {profile.Id}   {profile.FirstName}   {profile.LastName}");
+            }
+            Console.ForegroundColor = ConsoleColor.DarkMagenta; 
+            WriteLine("Enter the Id number of the profile you want to remove");
+            ResetColor();
+            RemoveADeveloper();
+        }
+        else
+        {
+            WriteLine("No Developer Profiles Found.");
+            ReadKey();
+            DevIndexMenuReturn();
+        }
+    }
+
 private void RemoveADeveloper()
     {
         Clear();
         try
-        {
-            WriteLine("Enter the Id number of the profile you want to remove");
+        {            
             int usersearchId = int.Parse(ReadLine());
             Developer profile = _devRepo.GetDeveloperByID(usersearchId);
             WriteLine($"Found profile: {profile.Id} {profile.FullName} ");
@@ -281,17 +303,17 @@ private void RemoveADeveloper()
                 }
                 else
                 {
-                    WriteLine($"The Developer with the Id: {usersearchId}, was NOT Deleted.");
+                    WriteLine($"The Developer with the Id: {usersearchId}, could not be deleted. \n."
+                                +"Try confirming this is the Id you are looking for.");
                 }
             }
         }
         catch
         {
-        
+                    WriteLine($"The Developer with that Id could not be deleted. \n."
+                                +"Try confirming this is the Id you are looking for.");
         }
 
         ReadKey();
     }
 }
-
-

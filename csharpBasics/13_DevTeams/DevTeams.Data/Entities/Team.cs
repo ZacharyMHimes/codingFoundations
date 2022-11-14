@@ -4,6 +4,7 @@ public class Team
 {
         public Team
         (
+
             string teamName,
             List<Developer> teamMembers
         )
@@ -25,14 +26,15 @@ public List<Developer> TeamMembers {get; set;} = new List<Developer>();
 // Method that converts all Team data into printable string for ease of use
 public override string ToString()
 {
-    var str = $"TeamId: {TeamId}\n" +
+    var report = $"TeamId: {TeamId}\n" +
                 $"TeamName: {TeamName}\n" +
                 $"--------  Team Members -------------\n";
     foreach (Developer profile in TeamMembers)
     {
-        str += profile + "\n";
+        report += profile + "\n";
     }
 
-    return str;
-    }
+    return report;
+}
+
 }

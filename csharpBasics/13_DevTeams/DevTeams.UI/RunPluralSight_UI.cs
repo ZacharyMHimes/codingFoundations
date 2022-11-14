@@ -1,5 +1,7 @@
 using static System.Console;
-
+//* the thinking behind putting this in its own UI 
+//* was so that HR employees can one stop shop from the main menu
+//* presumably the dev + team management menus will be used more by project management
 public class RunPluralSight_UI //Contains Pluralsight report app
 {
 

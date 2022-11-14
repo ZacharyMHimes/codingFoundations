@@ -2,36 +2,44 @@
 //* This class holds the list of teams, and associated methods
 public class Teams_Repository
 {
-        private Devs_Repository _devRepo;
-        private readonly List<Teams_Repository> _teams = new List<Teams_Repository>();
-        private int _count = 000001;
+        public Devs_Repository _devRepo;
+        private readonly List<Team> _teamRepo = new List<Team>();
+        private int _count;
 
-        
+        public Teams_Repository()
+        {
+
+        }       
         public Teams_Repository(Devs_Repository devRepo)
         {
         _devRepo = devRepo;
-        PopulateFromStored();
+        PopulateTeams();
         }
 
-
-public List<Developer> GetAllDevelopers()
+    public List<Team> GetDeveloperTeams()
     {
-        return _devDb;
+        return _teamRepo;
     }
 
-//todo CREATE METHOD
-public bool AddTeamProfile(Team team)
+    //todo CREATE METHOD
+    public bool AddTeamProfile(Team team)
     {
         return (team is null) ? false : AddToDatabase(team);
     }
 
 public bool AddToDatabase(Team team)
-    {   _count++;
-        team.TeamId = _count;
-        _teams.Add(team);
-        return true;
-    }
-private void PopulateFromStored()
+            {
+            _count++;
+            team.TeamId = _count;
+            _teamRepo.Add(team);
+            return true;
+            }
+
+
+
+    
+
+private void PopulateTeams()
     {
 
         var Borg = _devRepo.GetDeveloperByID(116479);
