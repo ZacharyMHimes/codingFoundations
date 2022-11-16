@@ -20,44 +20,7 @@ public void Run()
             RunApplication();
         };
     } 
-/* LOG IN SCREEN //* Save for implementation on other projects
-private void LogInScreen()
-    {
-        Console.ForegroundColor = ConsoleColor.DarkGreen;
-            System.Console.WriteLine("\n" 
-            + "                                                                                                                \n" 
-            + "                                Komodo Insurance Dev Team Management Application                                \n");
-        ResetColor(); 
-        Console.ForegroundColor = ConsoleColor.DarkYellow;
-            System.Console.WriteLine("\n"
-            + "                              'We'll absolve your corporation of ALL liability!!!'                               \n");
-        ResetColor();
-        Console.ForegroundColor = ConsoleColor.DarkCyan;
-            System.Console.WriteLine("\n"
-            +"Press '1' to Main Menu \n"
-            +"Press '2' to Close Application");
-        ResetColor();
-            
-        var userInput = ReadLine();
-        {
-            switch (userInput)
-            {
-                case "1": //Enters Main Menu
-                    Console.Clear();
-                    RunApplication();
-                    break;
-                case "2": //Closes Console App
-                    Console.Clear();
-                    isRunning = false;
-                    break;
-                default: //Returns User to "Log In Screen"
-                    Console.Clear();
-                    LogInScreen();
-                    break;
-            }
-        };
-    }
-*/
+
 //* MAIN MENU
 private void RunApplication()
     {   Console.Clear();

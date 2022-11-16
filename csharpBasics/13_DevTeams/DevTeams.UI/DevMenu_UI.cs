@@ -42,10 +42,10 @@ private void ViewDevIndex()
             System.Console.WriteLine("\n"
             + "                                                                                                                \n"
             + "     1. List All Developer Profiles                                                6. Add Dev Profile           \n"
-            + "     2. List All Teamed Devs                                                       7. Remove Dev Profile        \n"
-            + "     3. List All Unteamed Devs                                                     8. ------------              \n" 
-            + "     4. List All Devs By Team                                                      9. ------------              \n" 
-            + "     5. -------------                                                             10. Return to Main            \n" 
+            + "     2. ---------------------                                                      7. Remove Dev Profile        \n"
+            + "     3. ---------------------                                                      8. ------------              \n" 
+            + "     4. ---------------------                                                      9. ------------              \n" 
+            + "     5. ---------------------                                                      10. Return to Main            \n" 
             + "                                                                                                                \n"
             + "                                                                                                                \n"); 
         Console.ForegroundColor = ConsoleColor.DarkMagenta;

@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using static System.Console;
 public class TeamMenu_UI
 {
@@ -22,7 +23,7 @@ private void OpenTeamMenu()
         {
             isRunningDevUI = true;
             while (isRunningDevUI)
-                {
+                {   Clear();
                     ViewTeamIndex();
                 };
         }
@@ -34,7 +35,8 @@ private void CloseTeamMenu()
 
 //* 1. Developer Menu
 private void ViewTeamIndex()
-    {   Console.ForegroundColor = ConsoleColor.DarkGreen;
+    {   Console.Clear();
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
             System.Console.WriteLine("\n" 
             + "                                                                                                                \n" 
             + "                                Komodo Insurance Dev Team Management Application                                \n");
@@ -72,19 +74,18 @@ private void ViewTeamIndex()
                     break;
                 case "6":
                     Console.Clear();
-                    AddTeamToDatabase();
+                    NewTeamProfile();
                     break;
                 case "7":
                     Console.Clear();
-                    //RemoveTeamFromDatabase();
+                    ListAllTeamProfilesToDelete();
                     break;
                 default:
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    WriteLine("Invalid Selection, Please enter an Integer value");
+                    WriteLine("Invalid Selection, Enter to Reset");
                     ResetColor();
-                    ReadLine();
+                    ReadKey();
                     break;
-                
                     }
     }
 
@@ -98,20 +99,26 @@ private void ValidateTeams_PrintRosters(List<Team> teamsInDb)
     {
         System.Console.WriteLine(" Komodo Insurance Development Teams Report: ");
         if (teamsInDb.Count > 0)
-        {
-            foreach (Team team in teamsInDb)
-            System.Console.WriteLine(
-                $"{team.TeamId}"
-                );
+            {
+                    foreach (Team team in teamsInDb)
+                    {
+                        System.Console.WriteLine($"{team.TeamId}    {team.TeamName} ");
+                        foreach ( var member in team.TeamMembers)
+                        {
+                            System.Console.WriteLine(member.Id);
+
+                        }
+                    }
+
             ReadKey();
             OpenTeamMenu();
-        }
+            }
         else
-        {
+            {
             WriteLine("No Teams Found.");
             ReadKey();
             OpenTeamMenu();
-        }
+            }
     }
 
 
@@ -129,7 +136,7 @@ private Team NewTeamProfile()
 
             while (!hasFilledPositions)
             {
-                WriteLine("Does this team have any Developers? y/n");
+                WriteLine("Add Developers to team? y/n");
                 string userInputAnyDevs = ReadLine();
                 if (userInputAnyDevs == "Y".ToLower())
                 {
@@ -155,6 +162,7 @@ private Team NewTeamProfile()
                         ReadKey();
                         break;
                     }
+                    hasFilledPositions = true;
                 }
                 else
                 {
@@ -199,4 +207,63 @@ private void AddTeamToDatabase()
             };
     }
 
+private void ListAllTeamProfilesToDelete()
+    {
+        List<Team> teamsInDb = _teams.GetAllTeams();
+        Validate_RemoveTeamOptions(teamsInDb);
+    }
+
+private void Validate_RemoveTeamOptions(List<Team> teamsInDb)
+    {
+        if (teamsInDb.Count > 0)
+            {
+            foreach (Team team in teamsInDb)
+            {
+            System.Console.WriteLine($"{team.TeamId}  {team.TeamName}");
+            }
+            Console.ForegroundColor = ConsoleColor.DarkMagenta; 
+            WriteLine("Enter the Id number of the profile you want to remove");
+            ResetColor();
+            RemoveATeam();
+        }
+        else
+        {
+            WriteLine("No Developer Profiles Found.");
+            ReadKey();
+            OpenTeamMenu();
+        }
+            }
+
+private void RemoveATeam()
+    {
+        try
+        {            
+            int usersearchId = int.Parse(ReadLine());
+            Team team = _teams.GetDeveloperTeam(usersearchId);
+            WriteLine($"Found profile: {team.TeamId} {team.TeamName} ");
+            WriteLine($"Do you want to Delete this Team? y/n?");
+            string userInputDeleteDev = ReadLine();
+            if (userInputDeleteDev == "Y".ToLower())
+            {
+                if (_teams.DeleteDeveloperTeam(usersearchId))
+                {
+                    WriteLine($" profile: {team.TeamId} {team.TeamName}, has been cast into the shadow.");
+                }
+                else
+                {
+                    WriteLine($"The Developer with the Id: {usersearchId}, could not be deleted. \n."
+                                +"Try confirming this is the Id you are looking for.");
+                }
+            }
+        }
+        catch
+        {
+                    WriteLine($"The Developer with that Id could not be deleted. \n."
+                                +"Try confirming this is the Id you are looking for.");
+        }
+
+        ReadKey();
+    }
+
 }
+
